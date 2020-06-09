@@ -69,10 +69,12 @@ class Graph:
         Returns:
         Vertex: The new vertex object.
         """
-        # if it comes with a given key, we don't have to write it?
+        # if it comes with a given key, we don't have to write it?  vertex_id = key
         # self.__vertex_dict[vertex_id.key] = vertex_id
         self.__vertex_dict[vertex_id] = vertex_id
-        return self.__vertex_dict[vertex_id]
+        return vertex_id
+        # can we return either?
+        # return self.__vertex_dict[vertex_id]
 
 
     def get_vertex(self, vertex_id):
@@ -91,11 +93,14 @@ class Graph:
         vertex_id1 (string): The unique identifier of the first vertex.
         vertex_id2 (string): The unique identifier of the second vertex.
         """
-        vertex1 = self.get_vertex(vertex_id1)
-        vertex2 = self.get_vertex(vertex_id2)
-
-        
-
+        if vertex_id1 not in self.__vertex_dict:
+            # self.add_vertex(Vertex(vertex_id1))
+            self.add_vertex(vertex_id1)
+        if vertex_id2 not in self.__vertex_dict:
+            self.add_vertex(vertex_id2)
+        self.__vertex_dict[vertex_id1].add_neighbor(self.__vertex_dict[vertex_id2])
+        if not self.__is_directed:
+            self.__vertex_dict[vertex_id2].add_neighbor(self.__vertex_dict[vertex_id1])
 
     def get_vertices(self):
         """
