@@ -69,8 +69,10 @@ class Graph:
         Returns:
         Vertex: The new vertex object.
         """
-        self.__is_directed[vertex_id.key] = vertex_id
-        return 
+        # if it comes with a given key, we don't have to write it?
+        # self.__vertex_dict[vertex_id.key] = vertex_id
+        self.__vertex_dict[vertex_id] = vertex_id
+        return self.__vertex_dict[vertex_id]
 
 
     def get_vertex(self, vertex_id):
@@ -89,7 +91,11 @@ class Graph:
         vertex_id1 (string): The unique identifier of the first vertex.
         vertex_id2 (string): The unique identifier of the second vertex.
         """
-        pass
+        vertex1 = self.get_vertex(vertex_id1)
+        vertex2 = self.get_vertex(vertex_id2)
+
+        
+
 
     def get_vertices(self):
         """
