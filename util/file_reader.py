@@ -19,20 +19,31 @@ def read_graph_from_file(filename):
     # TODO: Use the first line (G or D) to determine whether graph is directed
     # and create a graph object
     lines = f.readlines()
+    # if it starts from D, is directed
     if lines[1] == "D":
         graph = Graph(is_directed=True)
+    #  If it starts from G is indirected
     elif lines[1] == 'G':
         graph = Graph(is_directed=False)
     else:
         raise ValueError('Invalid Input')
 
-
-
     # TODO: Use the second line to add the vertices to the graph
+    vertices = f.readline(lines[2])
+    for empty_space in vertices:
+        graph.add_vertex(empty_space)
 
     # TODO: Use the 3rd+ line to add the edges to the graph
+    for line in lines:
+        if line > 2:
+            current = f.readlines(line)
+            vertex1 = f.readline(current[1])
+            vertex2 = f.readline(current[2])
+            graph.add_edge(vertex1, vertex2)
+    f.close()
+    return graph
 
-    pass
+
 
 if __name__ == '__main__':
 
