@@ -71,8 +71,9 @@ class Graph:
         """
         # if it comes with a given key, we don't have to write it?  vertex_id = key
         # self.__vertex_dict[vertex_id.key] = vertex_id
-        self.__vertex_dict[vertex_id] = vertex_id
-        return vertex_id
+        vertex = Vertex(vertex_id)
+        self.__vertex_dict[vertex_id] = vertex
+        return vertex
         # can we return either?
         # return self.__vertex_dict[vertex_id]
 
