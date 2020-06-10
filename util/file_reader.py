@@ -26,7 +26,7 @@ def read_graph_from_file(filename):
     elif lines[1] == 'G':
         graph = Graph(is_directed=False)
     else:
-        print('Invalid Input')
+        raise ValueError('Invalid Input')
 
     # TODO: Use the second line to add the vertices to the graph
     vertices = f.readline(lines[2])
