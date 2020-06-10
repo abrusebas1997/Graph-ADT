@@ -15,9 +15,18 @@ def read_graph_from_file(filename):
     """
 
     # TODO: Use 'open' to open the file
-
-    # TODO: Use the first line (G or D) to determine whether graph is directed 
+    f = open(filename, 'r')
+    # TODO: Use the first line (G or D) to determine whether graph is directed
     # and create a graph object
+    lines = f.readlines()
+    if lines[1] == "D":
+        graph = Graph(is_directed=True)
+    elif lines[1] == 'G':
+        graph = Graph(is_directed=False)
+    else:
+        raise ValueError('Invalid Input')
+
+
 
     # TODO: Use the second line to add the vertices to the graph
 

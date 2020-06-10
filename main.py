@@ -53,4 +53,4 @@ if __name__ == '__main__':
     vertices_2_away = graph.find_vertices_n_away('A', 2)
     print(vertices_2_away)
 
-    graph = read_graph_from_file('test_files/graph_small_directed.txt')
+    # graph = read_graph_from_file('test_files/graph_small_directed.txt')
